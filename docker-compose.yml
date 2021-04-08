@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  api:
+    container_name: api_nestjs
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    command: >
+      bash -c "npm install
+      && npm start"
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend:/usr/src/app
+  front:
+    container_name: front_reactjs
+    build:
+      context: .
+      dockerfile: ./front/Dockerfile
+    command: >
+      bash -c "npm install
+      && npm start"
+    ports:
+      - 3001:3000
+    volumes:
+      - ./front:/usr/src/app
