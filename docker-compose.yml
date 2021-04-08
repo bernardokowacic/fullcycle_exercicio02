@@ -17,11 +17,11 @@ services:
     container_name: front_reactjs
     build:
       context: .
-      dockerfile: ./front/Dockerfile
+      dockerfile: ./frontend/Dockerfile
     command: >
       bash -c "npm install
       && npm start"
     ports:
       - 3001:3000
     volumes:
-      - ./front:/usr/src/app
+      - ./frontend:/usr/src/app
