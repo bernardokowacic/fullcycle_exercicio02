@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercicio03-backend
+  labels:
+    app: exercicio03-backend
+spec:
+  selector:
+    matchLabels: 
+      app: exercicio03-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: exercicio03-backend
+    spec:
+      containers:
+        - name: backend
+          image: "bernardolk/imersao-fullcycle-exercicio02-back:latest"
+          ports:
+            - containerPort: 3000
